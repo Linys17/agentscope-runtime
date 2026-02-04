@@ -21,13 +21,6 @@ RUN apt-get update && apt-get install -y --fix-missing \
     vim  \
     nginx \
     gettext-base \
-    xfce4 \
-    xfce4-terminal \
-    x11vnc \
-    xvfb \
-    novnc \
-    websockify \
-    dbus-x11 \
     fonts-wqy-zenhei \
     fonts-wqy-microhei
 

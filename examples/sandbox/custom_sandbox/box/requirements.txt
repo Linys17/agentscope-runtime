@@ -4,9 +4,9 @@ uvicorn==0.34.0
 pydantic==2.10.5
 requests==2.32.3
 mcp==1.9.0
-aiofiles
+aiofiles==23.2.1
 uv
-gitpython
+gitpython==3.1.43
 
 # Document processing libraries
 pypdf>=4.0.0
