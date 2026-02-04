@@ -173,7 +173,7 @@ CMD ["/bin/sh", "-c", "envsubst '$SECRET_TOKEN' < /etc/nginx/nginx.conf.template
 After preparing your Dockerfile and custom sandbox class, use the built-in builder tool to build your custom sandbox image:
 
 ```bash
-runtime-sandbox-builder custom_sandbox --dockerfile_path examples/custom_sandbox/Dockerfile
+runtime-sandbox-builder custom_sandbox --dockerfile_path examples/sandbox/custom_sandbox/Dockerfile --extension src/agentscope_runtime/sandbox/custom/custom_sandbox.py
 ```
 
 **Command Parameters:**

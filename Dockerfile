@@ -1,6 +1,3 @@
-# Custom Sandbox Dockerfile
-# 运行时，需要复制到根目录下进行构建
-
 FROM node:22-slim
 
 # ENV variables
