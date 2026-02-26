@@ -22,7 +22,23 @@ RUN apt-get update && apt-get install -y --fix-missing \
     nginx \
     gettext-base \
     fonts-wqy-zenhei \
-    fonts-wqy-microhei
+    fonts-wqy-microhei \
+    libglib2.0-0 \
+    libnss3 \
+    libnspr4 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libdrm2 \
+    libxkbcommon0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxfixes3 \
+    libxrandr2 \
+    libgbm1 \
+    libpango-1.0-0 \
+    libcairo2 \
+    libasound2
 
 
 WORKDIR /agentscope_runtime
@@ -38,6 +54,12 @@ COPY examples/sandbox/custom_sandbox/box/ ./
 # Install Python dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+
+
+# 新增：安装 agent-browser
+RUN npm install -g agent-browser && \
+    agent-browser install && \
+    agent-browser install --with-deps
 
 WORKDIR ${WORKSPACE_DIR}
 RUN mv /agentscope_runtime/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
