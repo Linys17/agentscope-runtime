@@ -54,9 +54,8 @@ RUN pip install -r requirements.txt
 
 
 # 新增：安装 agent-browser
-RUN npm install -g agent-browser && \
-    agent-browser install && \
-    agent-browser install --with-deps
+RUN npm install -g agent-browser
+RUN agent-browser install
 
 WORKDIR ${WORKSPACE_DIR}
 RUN mv /agentscope_runtime/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
