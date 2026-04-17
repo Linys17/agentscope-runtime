@@ -55,7 +55,10 @@ RUN pip install -r requirements.txt
 
 # 新增：安装 agent-browser
 RUN npm install -g agent-browser
-RUN agent-browser install
+RUN agent-browser install --with-deps
+
+# 新增：安装 OfficeCLI
+RUN npm install -g officecli
 
 WORKDIR ${WORKSPACE_DIR}
 RUN mv /agentscope_runtime/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
