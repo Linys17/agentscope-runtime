@@ -57,10 +57,8 @@ RUN pip install -r requirements.txt
 RUN npm install -g agent-browser
 RUN agent-browser install
 
-# 新增：安装 OfficeCLI
-RUN if ! command -v officecli >/dev/null 2>&1; then \
-    curl -fsSL https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/install.sh | bash \
-fi
+# 新增：安装 OfficeCLI（使用官方自包含单文件二进制，避免 .NET 运行时依赖问题）
+RUN curl -fsSL https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/install.sh | bash
 
 WORKDIR ${WORKSPACE_DIR}
 RUN mv /agentscope_runtime/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
